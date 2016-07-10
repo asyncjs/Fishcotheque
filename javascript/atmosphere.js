@@ -3,7 +3,7 @@ jj.createCreature('atmosphere', function (layer) {
   layer.el.remove();
   
   layer.data({background: true});
-  var el = jj.jQuery('div#jungle');
+  var el = jj.jQuery('div#fishcoteque');
   jj.bind('clock', function(hr,m) {
     if(m%10===0) {
       var tar = 255 - Math.floor(Math.abs(hr-12) * 21);

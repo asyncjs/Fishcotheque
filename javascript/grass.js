@@ -9,9 +9,9 @@ jj.createCreature('grass', function (layer) {
   var jq = jj.jQuery;
   // Set the size of your layer.
   //set to bottom of window
-  
+
   layer.size({ width: '100%', height: '100%'});
-  var w = layer.size().width, 
+  var w = layer.size().width,
       h = layer.size().height;
   var curGrowth = 0;
   var gen_path = function(growth,os) {
@@ -69,7 +69,7 @@ jj.createCreature('grass', function (layer) {
       canvas.className = 'full front';
       canvas.width = w;
       canvas.height = h;
-      jj.jQuery('div#jungle').append(canvas);
+      jj.jQuery('div#fishcoteque').append(canvas);
       context = canvas.getContext('2d');
       context.fillStyle    = 'red';
       context.font = "bold 50px 'OCR A Std'";

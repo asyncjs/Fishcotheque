@@ -34,7 +34,7 @@ jj.createCreature("chat", function (creature) {
     );
     
     function log(message, creature){
-        var creatureName = creature && creature.name ? 
+        var creatureName = creature && creature.name ?
                 creature.name() : creature || "anon",
             doScroll = (logEl.scrollHeight - logEl.scrollTop - logElem.height()) <= SCROLL_THRESHOLD,
             nameElem, delimElem, messageElem, report;
@@ -88,8 +88,8 @@ jj.createCreature("chat", function (creature) {
 
     // Publish all global events
     jj.bind("all", function(eventName, creature){
-        log(eventName, creature || "jungle");
+        log(eventName, creature || "fishcoteque");
     });
-    
-    log("Welcome to the JavaScript Jungle! <a href='http://asyncjs.com/jungle/'>Read more</a> / <em><a href='https://github.com/asyncjs/Javascript-Jungle/wiki/api'>docs</a></em>", "asyncjs");
+
+    log("Welcome to the Fishcoteque! <a href='http://asyncjs.com/fishcoteque/'>Read more</a> / <em><a href='https://github.com/asyncjs/Fishcoteque/wiki/api'>docs</a></em>", "asyncjs");
 });
