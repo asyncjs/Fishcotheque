@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Async's JavaScript Jungle</title>
+	
+    <!--
+        The JavaScript Jungle
+    
+        About the project: http://asyncjs.com/jungle/
+        Repo: https://github.com/asyncjs/Javascript-Jungle
+        Wiki: https://github.com/asyncjs/Javascript-Jungle/wiki
+        
+        * To learn how to add a new creature to the jungle*: read the source code of /javascript/creatures.js and check out the wiki.
+        
+    -->
+	
+	<link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+
+	<div id="jungle">
+        <span id="time"></span>
+        <h2 id="dig">BRIGHTON DIGITAL FESTIVAL</h2>
+        <h2 id="oururi">jungle.asyncjs.com</h2>
+        <div class="floor"></div>
+	</div>
+	
+	<script src="javascript/lib/getscript.js"></script>
+	<script>
+	    getScript(
+	        // Libraries, independent of each another
+	        [
+	            "lib/jquery.js",
+	            "lib/underscore.js",
+	            "lib/raphael.min.js",
+	            "lib/paper.js",
+	            "lib/broadcast.js"
+	        ],
+	        
+	        // Core Jungle script
+	        "jungle.js?v3",
+	        
+	        // Sensing other creatures
+	        "awareness.js?v3",
+	        
+	        // Creatures are added to creatures.js
+	        "creatures.js?v8",
+	        
+	        // Optional callback function to execute when all files completely loaded
+	        // function(){},
+	        
+	        // Load options (can include `noCache:true` to prevent browser caching, while debugging)
+    	    {path:"javascript/"}
+	    );
+	</script>
+</body>
+</html>
