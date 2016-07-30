@@ -1,9 +1,9 @@
 jj.createCreature('atmosphere', function (layer) {
   // we don't need layer for this as it's provided.
   layer.el.remove();
-  
+
   layer.data({background: true});
-  var el = jj.jQuery('div#fishcoteque');
+  var el = jj.jQuery('div#fishcotheque');
   jj.bind('clock', function(hr,m) {
     if(m%10===0) {
       var tar = 255 - Math.floor(Math.abs(hr-12) * 21);

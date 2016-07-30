@@ -3,8 +3,8 @@
 
   var $ = jQuery.noConflict(true),
       Events = Broadcast.noConflict(),
-      fishcoteque = $('#fishcoteque'),
-      fishcotequeEl = fishcoteque[0],
+      fishcotheque = $('#fishcotheque'),
+      fishcothequeEl = fishcotheque[0],
       creatures = {}, jj = {},
 
       // File that contains a list of urls, passed to jj.load
@@ -19,14 +19,14 @@
 
   /////
 
-  // Create the global fishcoteque object.
+  // Create the global fishcotheque object.
   window.jj = jj = $.extend({}, Events, {
     // jQuery object
     jQuery: $,
 
     _size: {
-        width: fishcoteque.width(),
-        height: fishcoteque.height()
+        width: fishcotheque.width(),
+        height: fishcotheque.height()
     },
 
     // Gets a particular creature by the name or null if not found.
@@ -69,7 +69,7 @@
         return;
       }
 
-      element  = $('<div class="creature" data-id="' + name + '" />').appendTo(fishcoteque);
+      element  = $('<div class="creature" data-id="' + name + '" />').appendTo(fishcotheque);
       creature = new Creature(name, element);
 
       try {
@@ -91,8 +91,8 @@
 
     recalculateSize: function(){
         this._size = {
-            width: fishcoteque.width(),
-            height: fishcoteque.height()
+            width: fishcotheque.width(),
+            height: fishcotheque.height()
         };
         return this;
     },
@@ -133,7 +133,7 @@
 
                 if (jj.isRunning){
                   raf ?
-                    raf(loop, fishcotequeEl) :
+                    raf(loop, fishcothequeEl) :
                     // fallback to setTimeout
                     jj._tickRef = window.setTimeout(loop, 1000 / FRAMERATE);
 

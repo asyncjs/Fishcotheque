@@ -61,7 +61,7 @@ jj.createCreature('grass', function (layer) {
   layer.length = function () {
     return curGrowth;
   };
-  
+
   jj.bind('grow',function() {
     if(curGrowth > h) {
       //game over man, game over.
@@ -69,15 +69,15 @@ jj.createCreature('grass', function (layer) {
       canvas.className = 'full front';
       canvas.width = w;
       canvas.height = h;
-      jj.jQuery('div#fishcoteque').append(canvas);
+      jj.jQuery('div#fishcotheque').append(canvas);
       context = canvas.getContext('2d');
       context.fillStyle    = 'red';
       context.font = "bold 50px 'OCR A Std'";
       context.fillText("Game Over", w/2-150,h/2);
     }
-    
+
   });
-  
+
   layer.eat = function () {
     if(curGrowth>20) {
       //find intersection of the caller

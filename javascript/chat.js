@@ -12,7 +12,7 @@ jj.createCreature("chat", function (creature) {
         FULL_WIDTH = 220,
         OPENCLOSE_DELAY = 0.38, // seconds
         cssPrefixes = " -webkit- -moz- -o- -ms- -khtml- ".split(" ");
-    
+
     // Browser prefixes applied to a CSS property
     function cssCrossBrowser(property, value){
         return cssPrefixes.join(property + ":" + value + ";");
@@ -22,7 +22,7 @@ jj.createCreature("chat", function (creature) {
         .size({width:FULL_WIDTH, height:"100%"})
         .position({right:0, top:0, zIndex:999999})
         .data({background:true, isFullWidth:true});
-    
+
     styleElem.text(
         ".creature[data-id=chat] {" + cssCrossBrowser("transition", "right " + OPENCLOSE_DELAY + "s ease-in") + "}" +
         ".creature ul.chat { list-style-type:none; padding:0.5em 1em; margin:0; font-family:monospace; overflow:auto; height:100%; opacity:0.7; color:#fff; background-color:#000; }" +
@@ -32,33 +32,33 @@ jj.createCreature("chat", function (creature) {
         ".creature ul.chat .chat-message { color:#ff9; font-weight:bold; }" +
         ".creature ul.chat.min > li { display:none; }"
     );
-    
+
     function log(message, creature){
         var creatureName = creature && creature.name ?
                 creature.name() : creature || "anon",
             doScroll = (logEl.scrollHeight - logEl.scrollTop - logElem.height()) <= SCROLL_THRESHOLD,
             nameElem, delimElem, messageElem, report;
-        
+
         report = jQuery("<li class='chat-entry'></li>");
         nameElem = jQuery("<span class='chat-name'></span>").text(creatureName);
-        
+
         if (message){
             delimElem = jQuery("<span class='chat-delimiter'>: </span>");
             messageElem = jQuery("<span class='chat-message'></span>").html(message);
         }
-        
+
         report.append(nameElem, delimElem, messageElem).appendTo(logElem);
         if (doScroll){
             logEl.scrollTop = logEl.scrollHeight;
         }
     };
-    
+
     logElem.click(function(event){
         var isFullWidth;
-    
+
         if (event.target === this){
             isFullWidth = creature.data().isFullWidth;
-        
+
             if (isFullWidth){
                 creature.position({right:MIN_WIDTH - FULL_WIDTH});
                 window.setTimeout(function(){
@@ -70,17 +70,17 @@ jj.createCreature("chat", function (creature) {
                 logElem.removeClass("min");
                 creature.position({right:0});
             }
-            
+
             creature.data({isFullWidth:!isFullWidth});
         }
     });
-    
+
     // jj.get("chat").trigger("log", "foo", creature);
     creature.bind("log", log);
-    
+
     // jj.chat("foo", creature);
     jj.chat = log;
-    
+
     creature.constructor.prototype.chat = function(message){
         log(message, this);
         return this;
@@ -88,8 +88,8 @@ jj.createCreature("chat", function (creature) {
 
     // Publish all global events
     jj.bind("all", function(eventName, creature){
-        log(eventName, creature || "fishcoteque");
+        log(eventName, creature || "fishcotheque");
     });
 
-    log("Welcome to the Fishcoteque! <a href='http://asyncjs.com/fishcoteque/'>Read more</a> / <em><a href='https://github.com/asyncjs/Fishcoteque/wiki/api'>docs</a></em>", "asyncjs");
+    log("Welcome to the Fishcotheque! <a href='http://asyncjs.com/fishcotheque/'>Read more</a> / <em><a href='https://github.com/asyncjs/Fishcotheque/wiki/api'>docs</a></em>", "asyncjs");
 });
