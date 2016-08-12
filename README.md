@@ -1,6 +1,6 @@
 # The Fishcotheque
 
-About the project: http://asyncjs.com/fishcotheque/
+About the project: [http://asyncjs.com/fishcotheque/](http://asyncjs.com/fishcotheque/)
 
 Repo: https://github.com/asyncjs/Fishcotheque
 

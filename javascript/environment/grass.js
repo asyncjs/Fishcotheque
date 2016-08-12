@@ -1,4 +1,4 @@
-jj.createCreature('grass', function (layer) {
+fishcotheque.createCreature('grass', function (layer) {
   layer.data({
     background: true
   });
@@ -6,7 +6,7 @@ jj.createCreature('grass', function (layer) {
 
   // the div element for the layer.
   var el = layer.el;
-  var jq = jj.jQuery;
+  var jq = fishcotheque.jQuery;
   // Set the size of your layer.
   //set to bottom of window
 
@@ -44,32 +44,32 @@ jj.createCreature('grass', function (layer) {
     fill: '100-#10360C-#15610F'
   });
 
-  jj.bind('breakfast',function() {
+  fishcotheque.bind('breakfast',function() {
     curGrowth += 20;
     grass.animate({path: gen_path(curGrowth)}, 1000);
     grass2.animate({path: gen_path(curGrowth-60,10)}, 1000);
-    jj.trigger('grow',layer);
+    fishcotheque.trigger('grow',layer);
   });
 
-  jj.bind('rain',function() {
+  fishcotheque.bind('rain',function() {
     curGrowth += 50;
     grass.animate({path: gen_path(curGrowth)}, 1000);
     grass2.animate({path: gen_path(curGrowth-60,10)}, 1000);
-    jj.trigger('grow',layer);
+    fishcotheque.trigger('grow',layer);
   });
 
   layer.length = function () {
     return curGrowth;
   };
 
-  jj.bind('grow',function() {
+  fishcotheque.bind('grow',function() {
     if(curGrowth > h) {
       //game over man, game over.
       var canvas = document.createElement('canvas');
       canvas.className = 'full front';
       canvas.width = w;
       canvas.height = h;
-      jj.jQuery('div#fishcotheque').append(canvas);
+      fishcotheque.jQuery('div#fishcotheque').append(canvas);
       context = canvas.getContext('2d');
       context.fillStyle    = 'red';
       context.font = "bold 50px 'OCR A Std'";
@@ -84,7 +84,7 @@ jj.createCreature('grass', function (layer) {
       curGrowth -= 20;
       grass.animate({path: gen_path(curGrowth)}, 1000);
       grass2.animate({path: gen_path(curGrowth-60,10)}, 1000);
-      jj.trigger('eaten', layer);
+      fishcotheque.trigger('eaten', layer);
       return 20;
     }
     //provide food amount as return

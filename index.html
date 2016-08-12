@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Async's Fishcotheque</title>
+    <meta charset="utf-8">
+    <title>Async's Fishcotheque</title>
 
     <!--
         The Fishcotheque
@@ -15,44 +15,43 @@
 
     -->
 
-	<link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <body>
 
-	<div id="fishcotheque">
+    <div id="fishcotheque">
         <span id="time"></span>
         <h2 id="dig">BRIGHTON DIGITAL FESTIVAL</h2>
         <h2 id="oururi">fishcotheque.asyncjs.com</h2>
         <div class="floor"></div>
-	</div>
+    </div>
 
-	<script src="javascript/lib/getscript.js"></script>
-	<script>
-	    getScript(
-	        // Libraries, independent of each another
-	        [
-	            "lib/jquery.js",
-	            "lib/underscore.js",
-	            "lib/raphael.min.js",
-	            "lib/paper.js",
-	            "lib/broadcast.js"
-	        ],
+    <script src="javascript/lib/getscript.js"></script>
+    <script>
+        getScript(
+            // Libraries, independent of each another
+            [
+                "lib/jquery.js",
+                "lib/underscore.js",
+                "lib/raphael.min.js",
+                "lib/broadcast.js"
+            ],
 
-	        // Core Fishcotheque script
-	        "fishcotheque.js?v3",
+            // Core Fishcotheque script
+            "fishcotheque.js?v1",
 
-	        // Sensing other creatures
-	        "awareness.js?v3",
+            // Sensing other creatures
+            "awareness.js?v1",
 
-	        // Creatures are added to creatures.js
-	        "creatures.js?v8",
+            // Creatures are added to creatures.js
+            "creatures.js?v1",
 
-	        // Optional callback function to execute when all files completely loaded
-	        // function(){},
+            // Optional callback function to execute when all files completely loaded
+            // function(){},
 
-	        // Load options (can include `noCache:true` to prevent browser caching, while debugging)
-    	    {path:"javascript/"}
-	    );
-	</script>
+            // Load options (can include `noCache:true` to prevent browser caching, while debugging)
+            {path:"javascript/"}
+        );
+    </script>
 </body>
 </html>

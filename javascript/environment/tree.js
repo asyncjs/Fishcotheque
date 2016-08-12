@@ -44,12 +44,12 @@
   for (distance = 6; distance >= 3; distance += -3) {
     tcol = colours.shift();
     for (tree = 1; 1 <= distance ? tree <= distance : tree >= distance; 1 <= distance ? tree++ : tree--) {
-      jj.createCreature("tree-" + distance + "-" + tree, function(layer) {
+      fishcotheque.createCreature("tree-" + distance + "-" + tree, function(layer) {
         var canvas, h, w, ws, _ref;
         layer.data({
           background: true
         });
-        ws = jj.size();
+        ws = fishcotheque.size();
         _ref = [Math.floor(ws.width / distance), Math.floor(ws.height / (distance / 3))], w = _ref[0], h = _ref[1];
         layer.size({
           width: w + 200,

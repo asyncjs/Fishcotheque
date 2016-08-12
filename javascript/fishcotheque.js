@@ -3,11 +3,11 @@
 
   var $ = jQuery.noConflict(true),
       Events = Broadcast.noConflict(),
-      fishcotheque = $('#fishcotheque'),
-      fishcothequeEl = fishcotheque[0],
-      creatures = {}, jj = {},
+      $fishcotheque = $('#fishcotheque'),
+      fishcothequeEl = $fishcotheque[0],
+      creatures = {}, fishcotheque = {},
 
-      // File that contains a list of urls, passed to jj.load
+      // File that contains a list of urls, passed to fishcotheque.load
       //CREATURE_URL_LIST = 'http://jsbin.com/uxukok/latest',
       CREATURE_URL_LIST = false,
 
@@ -20,18 +20,18 @@
   /////
 
   // Create the global fishcotheque object.
-  window.jj = jj = $.extend({}, Events, {
+  window.fishcotheque = fishcotheque = $.extend({}, Events, {
     // jQuery object
     jQuery: $,
 
     _size: {
-        width: fishcotheque.width(),
-        height: fishcotheque.height()
+        width: $fishcotheque.width(),
+        height: $fishcotheque.height()
     },
 
     // Gets a particular creature by the name or null if not found.
     //
-    //   var prem = jj.get('prem');
+    //   var prem = fishcotheque.get('prem');
     //   if (prem) {
     //     prem.trigger('hello');
     //   }
@@ -42,7 +42,7 @@
 
     // Gets a read-only object with copies of all creatures.
     //
-    //   $.each(jj.all(), function (creature, name) {
+    //   $.each(fishcotheque.all(), function (creature, name) {
     //     console.log("hello " + name);
     //   });
     //
@@ -56,7 +56,7 @@
     // Creates a new Creature in the environment. This is the main method that
     // will be used to populate the environment.
     //
-    //   jj.createCreature('bill', function (creature) {
+    //   fishcotheque.createCreature('bill', function (creature) {
     //     creature.el.size({width: 300, height: 120});
     //     creature.el.position({top: 20, left: 0});
     //   });
@@ -69,7 +69,7 @@
         return;
       }
 
-      element  = $('<div class="creature" data-id="' + name + '" />').appendTo(fishcotheque);
+      element  = $('<div class="creature" data-id="' + name + '" />').appendTo($fishcotheque);
       creature = new Creature(name, element);
 
       try {
@@ -78,7 +78,7 @@
 
       }
       catch (error) {
-        jj.trigger('crash', name, error);
+        fishcotheque.trigger('crash', name, error);
       }
 
       return this;
@@ -91,8 +91,8 @@
 
     recalculateSize: function(){
         this._size = {
-            width: fishcotheque.width(),
-            height: fishcotheque.height()
+            width: $fishcotheque.width(),
+            height: $fishcotheque.height()
         };
         return this;
     },
@@ -100,11 +100,11 @@
     // Returns the position (top/left/zIndex) of the center of the
     // environment.
     //
-    //   var center = jj.center();
+    //   var center = fishcotheque.center();
     //   creature.position({width: center.left, height: center.top});
     //
     center: function () {
-      var size = jj.size();
+      var size = fishcotheque.size();
 
       return {
         top:  size.height / 2,
@@ -120,7 +120,8 @@
     // See http://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/
     _tick: (function(){
         // feature testing
-        var raf = window.mozRequestAnimationFrame    ||
+        var raf = window.requestAnimationFrame       ||
+                  window.mozRequestAnimationFrame    ||
                   window.webkitRequestAnimationFrame ||
                   window.msRequestAnimationFrame     ||
                   window.oRequestAnimationFrame;
@@ -131,24 +132,23 @@
             function loop(now) {
                 var deltaT;
 
-                if (jj.isRunning){
+                if (fishcotheque.isRunning){
                   raf ?
                     raf(loop, fishcothequeEl) :
                     // fallback to setTimeout
-                    jj._tickRef = window.setTimeout(loop, 1000 / FRAMERATE);
+                    fishcotheque._tickRef = window.setTimeout(loop, 1000 / FRAMERATE);
 
                   // Make sure to use a valid time, since:
                   // - Chrome 10 doesn't return it at all
                   // - setTimeout returns the actual timeout
-                  now = now && now > 1E4 ? now : +new Date;
+                  now = now && now > 1E4 ? Math.round(now) : +new Date;
                   deltaT = now - lastFrame;
 
                   lastFrame = now;
-                  //jj.fps = 1000 / deltaT;
 
                   // do not render frame when deltaT is too high
-                  if (deltaT < FRAME_CUTOFF) {
-                    jj.trigger("tick", deltaT, now);
+                  if (deltaT < FRAME_CUTOFF && deltaT > 0) {
+                    fishcotheque.trigger("tick", deltaT, now);
                   }
                 }
             }
@@ -196,7 +196,7 @@
 
       // Bind default events.
       $.each(events, function (n, cb) {
-        jj.bind(n, cb);
+        fishcotheque.bind(n, cb);
       });
 
       // Load the list of creatures
@@ -355,7 +355,7 @@
 
     // Centers the creature in the world.
     center: function () {
-      var worldCenter = jj.center();
+      var worldCenter = fishcotheque.center();
       this.position({
         left: worldCenter.left - (this.width()  / 2),
         top:  worldCenter.top  - (this.height() / 2)
@@ -393,6 +393,6 @@
 
   /////
 
-  jj.init();
+  fishcotheque.init();
 
 }(this.jQuery, this.Broadcast, this.getScript, this));

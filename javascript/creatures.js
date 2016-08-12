@@ -1,19 +1,20 @@
 (function(){
     // CORE CREATURES
-    jj.load(
-        "javascript/atmosphere.js",
-        "javascript/chat.js",
-        "javascript/clock.js",
-        "javascript/grass.js",
-        "javascript/rain.js",
-        "javascript/stars.js",
-        "javascript/tree.js",
+    fishcotheque.load(
+        "javascript/environment/chat.js",
+        "javascript/environment/clock.js",
+        "javascript/environment/grass.js",
+        "javascript/environment/rain.js",
+        "javascript/environment/sky.js",
+        "javascript/environment/stars.js",
+        "javascript/environment/tree.js",
 
-        jj.hasSearchParam("dev") ?
+        fishcotheque.hasSearchParam("dev") ?
             null :
             [
                 // COMMUNITY CREATURES
-                "creatures/examples/example-1.js"
+                "creatures/example-fish-1/example-fish-1.js",
+                "creatures/example-fish-2/example-fish-2.js"
             ]
         );
 }());

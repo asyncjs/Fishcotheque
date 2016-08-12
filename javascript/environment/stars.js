@@ -1,10 +1,10 @@
 (function() {
-  jj.createCreature('stars', function(layer) {
+  fishcotheque.createCreature('stars', function(layer) {
     var $rnd, h, rp, star, star_positions, star_visible, w, ws;
     layer.data({
       background: true
     });
-    ws = jj.size();
+    ws = fishcotheque.size();
     w = ws.width;
     h = 200;
     layer.size({
@@ -27,7 +27,7 @@
       return _results;
     })();
     star_visible = [];
-    return jj.bind('clock', function(h, m) {
+    return fishcotheque.bind('clock', function(h, m) {
       var i, max, remove, rgb, star, tar, _ref, _results, _results2;
       if (m % 10 === 0) {
         max = Math.floor(Math.abs(12 - h) * 8.33);
