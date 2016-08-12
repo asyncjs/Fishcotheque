@@ -1,8 +1,8 @@
 /**
- * @see https://github.com/asyncjs/Javascript-Jungle/wiki/api
+ * @see https://github.com/asyncjs/Fishcotheque/wiki/api
  */
 
-jj.createCreature('happygiraffe-snowman', function (creature) {
+jj.createCreature('example-1', function (creature) {
   'use strict';
 
   // the div element for the creature.
@@ -59,7 +59,7 @@ jj.createCreature('happygiraffe-snowman', function (creature) {
       velocityX = -velocityX;
     }
     creature.position(newpos);
-    
+
     element.find('.snowman').css({'-webkit-transform': 'rotate(' + deg + 'deg)'});
     creature.data({'deg': deg + 1});
   });
@@ -67,7 +67,7 @@ jj.createCreature('happygiraffe-snowman', function (creature) {
   // Make the snowman change colour on each hour.
   jj.bind('clock', function(hh, mm) {
     if (mm === 0) {
-      creature.el.css({'color': rndColor()});      
+      creature.el.css({'color': rndColor()});
     }
   });
 });
