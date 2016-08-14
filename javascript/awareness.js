@@ -3,7 +3,7 @@
     var $ = jQuery;
 
     function findIntersectors(creature, creatures, range) {
-        
+
         var intersectors = [];
 
         if (creature.data().background) {
@@ -12,14 +12,14 @@
 
         var t_pos = $.extend({}, creature.position());
         var t_size = creature.size();
-        
+
         if (! range) {
 
             var t_x = [t_pos.left, t_pos.left + t_size.width];
             var t_y = [t_pos.top, t_pos.top + t_size.height];
 
         } else {
-            
+
             // HACK! if range, intersect against box 2 * range on side
             // centered on creature position.
             t_pos.left += (t_size.width / 2);
@@ -28,7 +28,7 @@
             var t_x = [t_pos.left - halfRange, t_pos.left + halfRange];
             var t_y = [t_pos.top - halfRange, t_pos.top + halfRange];
         }
-        
+
         $.each(creatures, function (name, intersector) {
             var i_pos = intersector.position();
             var i_size = intersector.size();
@@ -53,21 +53,21 @@
         }
     }
 
-    jj.createCreature('awareness', function (creature) {
+    fishcotheque.createCreature('awareness', function (creature) {
 
         // HACK! make awareness creature invisible
         creature.data({background: true});
 
-        jj.bind('tick', function (frame) {
+        fishcotheque.bind('tick', function (frame) {
 
             // HACK! initial naive collision detection - loop through
             // each creature comparing against each other creature
             // TODO: quad trees or similar to speed this up.
-            var creatures = jj.all();
+            var creatures = fishcotheque.all();
             $.each(creatures, function (name, current) {
                 var intersectors = findIntersectors(current, creatures);
                 triggerEvents(current, 'touch', intersectors);
-                
+
                 if (current.data().sight) {
                     var range = current.data().sight;
                     intersectors = findIntersectors(current, creatures, range);
@@ -86,4 +86,4 @@
             });
         });
     });
-})(jj.jQuery);
+})(fishcotheque.jQuery);
