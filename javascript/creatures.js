@@ -3,11 +3,8 @@
     fishcotheque.load(
         "javascript/environment/chat.js",
         "javascript/environment/clock.js",
-        "javascript/environment/grass.js",
-        "javascript/environment/rain.js",
-        "javascript/environment/sky.js",
-        "javascript/environment/stars.js",
-        "javascript/environment/tree.js",
+        "javascript/environment/sea-bg.js",
+        "javascript/environment/sea-bed.js",
 
         fishcotheque.hasSearchParam("dev") ?
             null :
