@@ -1,33 +1,51 @@
 /**
- * @see https://github.com/asyncjs/Fishcotheque/wiki/api
+ * @see
+ *   - [repo] https://github.com/asyncjs/Fishcotheque
+ *   - [demo] https://fishcotheque.asyncjs.com
+ *   - [about] https://asyncjs.com/fishcotheque/
  */
 
 fishcotheque.createCreature('example-fish-1', function (creature) {
+
   'use strict';
 
+  // It can be useful to create a shortcut to jQuery
   var jQuery = fishcotheque.jQuery;
+
+  // Your creature's root DOM element
   var element = creature.el;
+
+  // Some internal variables for the example creature
   var speed = 1;
   var scale = Math.random() + 0.25;
 
-  // Set the size of your creature.
-  creature.size({width: 85, height: 60});
+  // Set the size of your creature
+  creature.size({
+    width: 85,
+    height: 60
+  });
 
-  // Start in the middle.
+  // Position creature somewhere on the canvas
   var canvasSize = fishcotheque.size();
   creature.position({
     top: rnd(0, canvasSize.height),
     left: rnd(0, canvasSize.width)
   });
 
+  // Click detection
+  element.on('click', function (e) {
+    creature.chat('Leave me alone!');
+  });
+
+  // Set a random size for the creature
   element.css({
     'transform': 'scale(' + scale + ',' + scale + ')'
   });
 
-  jQuery("<img/>")
-    .attr("src", "creatures/example-fish-1/example-fish-1.png")
-    .appendTo(element);
+  // Load external CSS file
+  fishcotheque.loadCSS('creatures/example-fish-1/example-fish-1.css');
 
+  // Generate a random number between two values
   function rnd(lower, upper) {
     var maxima = Math.max(upper, lower),
         minima = Math.min(upper, lower),
@@ -35,25 +53,43 @@ fishcotheque.createCreature('example-fish-1', function (creature) {
     return value + minima;
   }
 
+  // Update the creature's state every time we redraw the fishcotheque
   fishcotheque.bind('tick', function() {
+
+    // Calculate position
     var oldpos = creature.position(),
         newpos = {
           'top': oldpos.top,
           'left': oldpos.left + speed,
         };
 
-    // collision detection.
+    // Collision detection with the edge of the screen
     if ((newpos.left > canvasSize.width) || newpos.left < -element.width()) {
+
+      // Reverse direction
       newpos.left = oldpos.left;
+
+      // Set a new random vertical position
       newpos.top = rnd(0, canvasSize.height);
+
+      // Flip the direction of travel
       speed = -speed;
+
+      // Set a new random size
       scale = Math.random() + 0.25;
+
+      // Flip the direction of the image
       var xScale = (speed > 0) ? scale : -scale;
+
+      // Update creature dimensions
       element.css({
         'transform': 'scale(' + xScale + ',' + scale + ')'
       });
-      creature.chat("Here I come...");
+
+      creature.chat('Here I come...');
     }
+
+    // Move creature
     creature.position(newpos);
   });
 });

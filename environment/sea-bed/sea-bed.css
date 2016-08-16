@@ -1,0 +1,12 @@
+.creature--sea-bed {
+    height: 100px;
+    background: linear-gradient(to bottom,
+        rgb(238, 223, 195) 0%,
+        rgb(245, 245, 220) 100%);
+}
+
+@media (max-device-width: 600px) {
+    .creature--sea-bed {
+        height: 200px;
+    }
+}

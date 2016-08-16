@@ -1,0 +1,16 @@
+.creature--clock {
+    background: #000;
+    color: #fff;
+    display: block;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-device-width: 600px) {
+    .creature--clock {
+        padding: 16px;
+        font-size: 40px;
+    }
+}

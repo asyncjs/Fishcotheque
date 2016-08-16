@@ -6,30 +6,13 @@ html {
   box-sizing: inherit;
 }
 
-body {
+* {
   margin : 0;
   padding : 0;
 }
 
 a { color : #fff; }
-
-h2 {
-  right : 20px;
-  color : #fff;
-  position: absolute;
-  font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
-  z-index:9999;
-  opacity: 0.5;
-}
-
-#async {
-  font-size : 15pt;
-}
-
-#digi {
-	top : 30px;
-	font-size : 10pt;
-}
+a:hover { color : #eee; }
 
 div#fishcotheque {
   position: fixed;
@@ -63,4 +46,47 @@ div.creature canvas {
   -o-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -khtml-transform: translateZ(0);
+}
+
+/* Info panel */
+#info {
+  color : #fff;
+  font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+  opacity: 0.5;
+  position: absolute;
+  right : 20px;
+  text-align: right;
+  top: 20px;
+  z-index:9999;
+}
+
+#info h1 {
+  font-size : 15pt;
+  margin: 0 0 3px 0;
+}
+
+#info p {
+  font-size : 10pt;
+}
+
+#info li {
+  display: inline-block;
+  font-size : 10pt;
+  list-style: none;
+  margin: 0 0 3px 0;
+  padding: 0;
+}
+
+@media (max-device-width: 600px) {
+  #info h1 {
+    font-size : 30pt;
+  }
+
+  #info p {
+    font-size : 20pt;
+  }
+
+  #info li {
+    font-size : 20pt;
+  }
 }
