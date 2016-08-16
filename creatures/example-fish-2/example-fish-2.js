@@ -1,8 +1,12 @@
 /**
- * @see https://github.com/asyncjs/Fishcotheque/wiki/api
+ * @see
+ *   - [repo] https://github.com/asyncjs/Fishcotheque
+ *   - [demo] https://fishcotheque.asyncjs.com
+ *   - [about] https://asyncjs.com/fishcotheque/
  */
 
 fishcotheque.createCreature('example-fish-2', function (creature) {
+
   'use strict';
 
   var jQuery = fishcotheque.jQuery;
@@ -10,10 +14,8 @@ fishcotheque.createCreature('example-fish-2', function (creature) {
   var speed = -2;
   var scale = Math.random() + 0.25;
 
-  // Set the size of your creature.
   creature.size({width: 76, height: 68});
 
-  // Start in the middle.
   var canvasSize = fishcotheque.size();
   creature.position({
     top: rnd(0, canvasSize.height),
@@ -21,12 +23,20 @@ fishcotheque.createCreature('example-fish-2', function (creature) {
   });
 
   element.css({
-    'transform': 'scale(' + (-scale) + ',' + scale + ')'
+    'transform': 'scale(' + (-scale) + ',' + scale + ')',
+    'cursor': 'pointer'
   });
 
-  jQuery("<img/>")
-    .attr("src", "creatures/example-fish-2/example-fish-2.png")
-    .appendTo(element);
+  element.on('click', function (e) {
+    speed = -speed;
+    var xScale = (speed > 0) ? scale : -scale;
+    element.css({
+      'transform': 'scale(' + xScale + ',' + scale + ')'
+    });
+    creature.chat('Ouch!');
+  });
+
+  fishcotheque.loadCSS('creatures/example-fish-2/example-fish-2.css');
 
   function rnd(lower, upper) {
     var maxima = Math.max(upper, lower),
@@ -42,7 +52,6 @@ fishcotheque.createCreature('example-fish-2', function (creature) {
           'left': oldpos.left + speed,
         };
 
-    // collision detection.
     if ((newpos.left > canvasSize.width) || newpos.left < -element.width()) {
       newpos.left = oldpos.left;
       newpos.top = rnd(0, canvasSize.height);
@@ -52,7 +61,7 @@ fishcotheque.createCreature('example-fish-2', function (creature) {
       element.css({
         'transform': 'scale(' + xScale + ',' + scale + ')'
       });
-      creature.chat("I'm turning!");
+      creature.chat('I\'m turning!');
     }
     creature.position(newpos);
   });

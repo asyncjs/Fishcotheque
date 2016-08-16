@@ -1,0 +1,5 @@
+.creature--sea-bg {
+    background: linear-gradient(to bottom,
+        rgb(30,87,153) 0%,
+        rgb(125,185,232) 100%);
+}

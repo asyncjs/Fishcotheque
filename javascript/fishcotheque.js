@@ -51,7 +51,12 @@
     },
 
     // Loads args.
-    load: getScript,
+    loadScript: getScript,
+
+    // Load CSS
+    loadCSS: function (file) {
+      $('head').append('<link rel="stylesheet" href="' + file + '" />');
+    },
 
     // Creates a new Creature in the environment. This is the main method that
     // will be used to populate the environment.
@@ -69,7 +74,7 @@
         return;
       }
 
-      element  = $('<div class="creature" data-id="' + name + '" />').appendTo($fishcotheque);
+      element  = $('<div class="creature creature--' + name + '" data-id="' + name + '" />').appendTo($fishcotheque);
       creature = new Creature(name, element);
 
       try {

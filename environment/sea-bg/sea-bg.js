@@ -1,11 +1,17 @@
 /**
- * @see https://github.com/asyncjs/Fishcotheque/wiki/api
+ * @see
+ *   - [repo] https://github.com/asyncjs/Fishcotheque
+ *   - [demo] https://fishcotheque.asyncjs.com
+ *   - [about] https://asyncjs.com/fishcotheque/
  */
 
 fishcotheque.createCreature('sea-bg', function (creature) {
+
   'use strict';
 
   var element = creature.el;
+
+  fishcotheque.loadCSS('environment/sea-bg/sea-bg.css');
 
   creature.size({
     width: '100%',
@@ -15,9 +21,5 @@ fishcotheque.createCreature('sea-bg', function (creature) {
   creature.position({
     top: 0,
     left: 0
-  });
-
-  element.css({
-    background: 'linear-gradient(to bottom, rgb(30,87,153) 0%, rgb(125,185,232) 100%)'
   });
 });

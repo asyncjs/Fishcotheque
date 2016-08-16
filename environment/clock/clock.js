@@ -1,34 +1,36 @@
+/**
+ * @see
+ *   - [repo] https://github.com/asyncjs/Fishcotheque
+ *   - [demo] https://fishcotheque.asyncjs.com
+ *   - [about] https://asyncjs.com/fishcotheque/
+ */
+
 fishcotheque.createCreature('clock', function (creature) {
+
+  'use strict';
+
   var SPEED = 5,
-      hours = 0,
-      minutes = 1,
-      minutesAccurate = 1,
-      minutesCache,
-      events = {
-        '0':  'midnight',
-        '6':  'morning',
-        '8':  'breakfast',
-        '12': 'midday',
-        '13': 'lunch',
-        '19': 'dinner',
-        '21': 'nighttime'
-      },
-      data = creature.data(),
-      el = creature.el;
+    hours = 0,
+    minutes = 1,
+    minutesAccurate = 1,
+    minutesCache,
+    events = {
+      '0':  'midnight',
+      '6':  'morning',
+      '8':  'breakfast',
+      '12': 'midday',
+      '13': 'lunch',
+      '19': 'dinner',
+      '21': 'nighttime'
+    },
+    data = creature.data(),
+    el = creature.el;
+
+  fishcotheque.loadCSS('environment/clock/clock.css');
 
   creature
-    .position({right:0, bottom:0, zIndex:1000})
+    .position({right: 0, bottom: 0, zIndex: 1000})
     .data({speed: SPEED, background: true});
-
-  creature.el
-    .css({
-      'background': '#000',
-      'color': '#fff',
-      'padding': '8px',
-      'font-family': 'monospace',
-      'font-size' : '20px',
-      'cursor': 'pointer'
-    });
 
   // Create a clock that moves six times faster than normal.
   // eg. 10 mins = 1 hour.
@@ -47,9 +49,9 @@ fishcotheque.createCreature('clock', function (creature) {
         hours = 0;
       }
 
-      // Update clock element
+      // Update clock element content
       el.html(
-        (hours < 10 ? '0' + hours : hours) + ":" +
+        (hours < 10 ? '0' + hours : hours) + ':' +
         (minutes  < 10 ? '0' + minutes  : minutes)
       );
 
