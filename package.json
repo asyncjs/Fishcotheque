@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.14.0",
-    "multer": "^1.2.0"
+    "multer": "^1.2.0",
+    "promisify-node": "^0.4.0",
+    "rimraf": "^2.5.4",
+    "string": "^3.3.1"
   },
   "devDependencies": {
     "nodemon": "^1.10.2"
