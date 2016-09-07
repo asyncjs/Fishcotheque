@@ -41,6 +41,18 @@ function checkCreatureDirectory(subPath) {
     });
 }
 
+function moveMediaFiles(subPath, res, mediaFileDescriptor) {
+    const filename = mediaFileDescriptor.filename;
+    
+    return fs.rename(
+        path.join('uploads', filename),
+        path.join(subPath, mediaDirName, mediaFileDescriptor.originalname)
+    ).catch((err) => {
+        console.error(`Error storing ${mediaFileDescriptor.originalname}`, err);
+        res.status(500).end();
+    });
+}
+
 function storeFiles(req, res, next) {
     console.log(req.body, req.files);
 
@@ -56,12 +68,18 @@ function storeFiles(req, res, next) {
     const subPath = path.join(__dirname, 'creatures', creatureDirname);
 
     checkCreatureDirectory(subPath).then((results) => {
-        console.log(brainFileDescriptor, subPath, results);
+        fs.rename(
+            path.join('uploads', brainFileDescriptor.filename),
+            path.join(subPath, 'brain.js')
+        ).catch((err) => {
+            console.error(`Error creating brain for ${creatureId}`, err);
+            res.status(500).end();
+        });
 
-        fs.rename(path.join('uploads', brainFileDescriptor.filename), path.join(subPath, 'brain.js'))
-            .then(next)
-            .catch((err) => { 
-                console.error('Error creating brain for ' + creatureId, err);
+        Promise.all(mediaFileDescriptors.map(moveMediaFiles.bind(null, subPath, res)))
+            .then(() => next()) // Have to manually invoke next as Promise.all would pass it an array
+            .catch((err) => {
+                console.error('Error creating media', err);
                 res.status(500).end();
             });
     }).catch((err) => {
