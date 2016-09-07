@@ -89,7 +89,7 @@ function storeFiles(req, res, next) {
 }
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/uploads.html');
+    res.sendFile(path.join(__dirname, 'uploads.html'));
 });
 
 app.post('/upload-creature', creatureUpload, storeFiles, (req, res, next) => {
