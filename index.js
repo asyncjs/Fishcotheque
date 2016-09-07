@@ -92,7 +92,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'uploads.html'));
 });
 
-app.post('/upload-creature', creatureUpload, storeFiles, (req, res, next) => {
+app.post('/upload-creature', creatureUpload, storeFiles, (req, res) => {
     res.send('<h1>Thanks!</h1><p><a href="/">Back to upload page</a></p>');
 })
 
