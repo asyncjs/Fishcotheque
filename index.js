@@ -25,18 +25,19 @@ function checkCreatureDirectory(subPath) {
             throw err;
         }
     }).then((stats) => {
+        const mediaDir = path.join(subPath, mediaDirName);
+
         if (stats && stats.isDirectory()) {
             // Remove media
-            return rimraf(path.join(subPath, mediaDirName)).then(() => {
-                console.log('removed media');
-                return {isOverwritten: true}
-            });
+            return rimraf(mediaDir)
+                .catch((err) => {}) // we don't care if this fails
+                .then(() => fs.mkdir(mediaDir))
+                .then(() => {isOverwritten: true});
         }
 
-        return fs.mkdir(subPath).then(() => {
-            console.log('made dir');
-            return {isOverwritten: false}
-        });
+        return fs.mkdir(subPath)
+            .then(() => fs.mkdir(mediaDir))
+            .then(() => {isOverwritten: false});
     });
 }
 
