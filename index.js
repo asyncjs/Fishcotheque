@@ -10,10 +10,10 @@ const rimraf = promisify('rimraf');
 const upload = multer({ dest: 'uploads/' });
 const mediaDirName = 'media';
 const creatureUpload = upload.fields([
-    { 
-        name: 'src', maxCount: 1 
-    }, { 
-        name: 'media', maxCount: 24 
+    {
+        name: 'src', maxCount: 1
+    }, {
+        name: 'media', maxCount: 24
     }
 ]);
 
