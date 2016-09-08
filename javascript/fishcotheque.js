@@ -77,6 +77,10 @@
       element  = $('<div class="creature creature--' + name + '" data-id="' + name + '" />').appendTo($fishcotheque);
       creature = new Creature(name, element);
 
+      // detect the type
+      creature.environment = document.currentScript.src.indexOf('environment') !== -1;
+
+
       try {
         callback.call(creature, creature);
         creatures[name] = creature;
