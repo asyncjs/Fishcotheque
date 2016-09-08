@@ -76,7 +76,6 @@ fishcotheque.createCreature('bubbles', function (creature) {
 
   function start() {
     fishcotheque.bind('tick', function() {
-      console.log(bubbles.length);
       reaper();
 
       if (maybe(P_SPAWN_BUBBLES) && bubbles.length < 20) {
@@ -88,6 +87,4 @@ fishcotheque.createCreature('bubbles', function (creature) {
   }
 
   element.append(canvas);
-  console.log('DONE');
-  console.log(element[0]);
 });
