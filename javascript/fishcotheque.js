@@ -191,11 +191,11 @@
     init: function(){
       var events = {
         crash : function (name, error) {
-          window.console.log([
+          window.console.log(
             name + " failed at evolution",
             error.name + ': ' + error.message,
-            error.stack ? error.stack.join('\n') : "no stack"
-          ]);
+            error.stack ? (error.length ? Array.prototype.join(error.stack,'\n') : error.stack) : "no stack"
+          );
         }
       };
 
