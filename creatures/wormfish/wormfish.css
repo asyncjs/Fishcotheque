@@ -1,0 +1,12 @@
+.creature--wormfish {
+  background-size: contain;
+}
+.creature--wormfish.pos1 {
+    background: transparent url(wormfish-1.png) no-repeat;
+}
+.creature--wormfish.pos2 {
+    background: transparent url(wormfish-2.png) no-repeat;
+}
+.creature--wormfish.pos3 {
+    background: transparent url(wormfish-3.png) no-repeat;
+}
