@@ -19,5 +19,6 @@
 	"creatures/ms-crab/ms-crab.js",
         "creatures/clam/clam.js",
         "creatures/sanic/sanic.js",
+        'creatures/deaded-fish/dead.js'
     );
 }());
