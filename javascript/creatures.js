@@ -15,7 +15,7 @@
         "creatures/link-fish/link-fish.js",
   		"creatures/ms-crab/ms-crab.js",
         "creatures/clam/clam.js",
-        'creatures/deaded-fish/dead.js',
+        'creatures/deaded-fish/dead.js'
 
     );
 }());
