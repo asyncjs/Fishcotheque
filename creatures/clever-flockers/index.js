@@ -11,6 +11,9 @@ const attractors = [[
   , Infinity // y
   , 150 // dist
   , 0.25 // spd
+], [
+  Infinity, 0,
+  -150, 0.25,
 ]]
 
 const max = 50;
@@ -97,6 +100,8 @@ const init = (number) => {
         left: boid[0] + canvasSize.width / 2,
         top: boid[1] + canvasSize.height / 2,
       };
+
+      
 
       // // Collision detection with the edge of the screen
       // if ((newpos.left > canvasSize.width) || newpos.left < -element.width()) {
