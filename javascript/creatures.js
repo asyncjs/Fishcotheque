@@ -13,8 +13,9 @@
         "creatures/example-fish-1/example-fish-1.js",
         "creatures/example-fish-2/example-fish-2.js",
         "creatures/link-fish/link-fish.js",
-		"creatures/ms-crab/ms-crab.js",
-        "creatures/clam/clam.js"
+  		"creatures/ms-crab/ms-crab.js",
+        "creatures/clam/clam.js",
+        'creatures/deaded-fish/dead.js',
 
     );
 }());

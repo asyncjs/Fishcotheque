@@ -1,0 +1,32 @@
+.creature--dead .deady {
+  background-image: url(images/fish.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: inherit; /* cheat! */
+  z-index: 1;
+}
+
+.creature--dead-barf {
+  animation: creature--dead-barf 500ms steps(4, end) forwards;
+  background: url(images/barf.png);
+  background-repeat: no-repeat;
+  height: 225px;
+  width: 270px;
+  margin-top: -28px;
+  background-position: 0 0;
+  margin-left: 30px;
+  transform: scale(0.5);
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+@keyframes creature--dead-barf {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 100%;
+  }
+}
