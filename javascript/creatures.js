@@ -21,6 +21,7 @@
         "creatures/clam/clam.js",
         "creatures/sanic/sanic.js",
         "creatures/mermaid/mermaid.js",
-        'creatures/deaded-fish/dead.js'
+        'creatures/deaded-fish/dead.js',
+        "creatures/iains-fish/iains-fish.js"
     );
 }());
