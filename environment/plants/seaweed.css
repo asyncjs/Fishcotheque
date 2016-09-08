@@ -1,0 +1,11 @@
+.creature--seaweed {
+    width: 1280px;
+    height: 160px;
+    background-image: url(seaweed.sprite.png);
+    animation: play .8s steps(2) infinite;
+}
+
+@keyframes play {
+   from { background-position-y: 0; }
+     to { background-position-y: 320px; }
+}
