@@ -10,7 +10,8 @@
 
         // CREATURES
         "creatures/example-fish-1/example-fish-1.js",
-        "creatures/example-fish-2/example-fish-2.js"
+        "creatures/example-fish-2/example-fish-2.js",
+        "creatures/link-fish/link-fish.js"
 
     );
 }());
