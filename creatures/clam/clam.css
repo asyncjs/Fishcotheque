@@ -1,0 +1,13 @@
+
+.creature--ladyClam {
+  background-image: url(clam.png);
+
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 70px;
+
+
+  background-position: -20px -15px; /* right-1*/
+}
+
+
