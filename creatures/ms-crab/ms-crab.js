@@ -21,8 +21,8 @@ fishcotheque.createCreature('ms-crab', function (creature) {
 
   // Set the size of your creature
   creature.size({
-    width: 93,
-    height: 105
+    width: 197,
+    height: 132
   });
   
   var seaBedHeight = 100;
