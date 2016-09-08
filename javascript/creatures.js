@@ -15,7 +15,10 @@
         "creatures/link-fish/link-fish.js",
   		"creatures/ms-crab/ms-crab.js",
         "creatures/clam/clam.js",
+        'creatures/deaded-fish/dead.js',
+	"creatures/ms-crab/ms-crab.js",
+        "creatures/clam/clam.js",
+        "creatures/sanic/sanic.js",
         'creatures/deaded-fish/dead.js'
-
     );
 }());
