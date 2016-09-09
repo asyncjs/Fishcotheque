@@ -1,0 +1,6 @@
+.creature--shark-shadow {
+    background-image: url(shark-shadow.gif);
+    background-size: 100% 100%;
+    opacity: 0.1;
+    -webkit-filter: blur(5px);
+}
