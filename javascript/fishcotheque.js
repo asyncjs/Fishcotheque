@@ -70,7 +70,7 @@
       var element, creature;
 
       if (creatures[name]) {
-        window.console.warn('The creature "%s" already exists!');
+        window.console.warn('The creature "%s" already exists!', name);
         return;
       }
 
