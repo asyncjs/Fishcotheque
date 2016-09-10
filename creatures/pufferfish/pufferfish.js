@@ -70,7 +70,6 @@ fishcotheque.createCreature('pufferfish', function (creature) {
 
     setTimeout(function () {
       isHovered = false;
-      isPuffed = false;
     }, 1000);
   });
 
@@ -109,6 +108,7 @@ fishcotheque.createCreature('pufferfish', function (creature) {
   function puffUp () {
     if (!isPuffed) {
       setFrame(1);
+      frameLastChanged = 0;
       isPuffed = true;
     }
   }
@@ -138,13 +138,17 @@ fishcotheque.createCreature('pufferfish', function (creature) {
       puffUp();
     }
 
-    else if (frameLastChanged === undefined || frameLastChanged + deltaT >= CHANGE_FRAME_EVERY) {
-      updateFrame(MAIN_FRAME_SEQUENCE);
-      frameLastChanged = 0;
-    }
-
     else {
-      frameLastChanged += deltaT;
+      isPuffed = false;
+
+      if (frameLastChanged === undefined || frameLastChanged + deltaT >= CHANGE_FRAME_EVERY) {
+        updateFrame(MAIN_FRAME_SEQUENCE);
+        frameLastChanged = 0;
+      }
+
+      else {
+        frameLastChanged += deltaT;
+      }
     }
 
     // Collision detection with the edge of the screen
