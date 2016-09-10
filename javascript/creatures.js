@@ -18,14 +18,12 @@
         "creatures/clam/clam.js",
         "creatures/clever-flockers/index.js",
         'creatures/deaded-fish/dead.js',
-        "creatures/ms-crab/ms-crab.js",
-        "creatures/clam/clam.js",
         "creatures/sanic/sanic.js",
         "creatures/mermaid/mermaid.js",
-        'creatures/deaded-fish/dead.js',
         "creatures/iains-fish/iains-fish.js",
         "creatures/wormfish/wormfish.js",
-        "creatures/rick/rick.js"
+        "creatures/rick/rick.js",
+        "creatures/pufferfish/pufferfish.js"
 
     );
 }());
