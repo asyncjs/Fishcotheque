@@ -5,6 +5,7 @@
         "environment/chat/chat.js",
         "environment/clock/clock.js",
         "environment/sea-bg/sea-bg.js",
+        "environment/castle/castle.js",
         "environment/sea-bed/sea-bed.js",
         "environment/bubbles/bubbles.js",
         "environment/plants/plants.js",

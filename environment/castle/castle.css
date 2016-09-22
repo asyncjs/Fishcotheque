@@ -1,0 +1,8 @@
+
+.creature--castle {
+    width: 700px;
+    height: 500px;
+    background: url(castle.png) 0 0 no-repeat;
+    background-size: 100%;
+    z-index: 0;
+}
