@@ -16,7 +16,7 @@ const attractors = [[
   -150, 0.25,
 ]]
 
-const max = 50;
+const max = 10;
 const flock = Boids({
   boids: max,              // The amount of boids to use
   // speedLimit: 5,          // Max steps to take per tick
@@ -24,9 +24,9 @@ const flock = Boids({
   // separationDistance: 100, // Radius at which boids avoid others
   // alignmentDistance: 180, // Radius at which boids align with others
   // cohesionDistance: 180,  // Radius at which boids approach others
-  // separationForce: 0.25,  // Speed to avoid at
+  separationForce: 0.25,  // Speed to avoid at
   // alignmentForce: 0.25,   // Speed to align with other boids
-  // cohesionForce: 1.5,     // Speed to move towards other boids
+  cohesionForce: 1.0,     // Speed to move towards other boids
   // attractors: attractors,
     boids: max
     , speedLimit: 2
@@ -47,7 +47,7 @@ const init = (number) => {
     element.attr('class', 'creature creature--clever-flockers');
     // Some internal variables for the example creature
     var speed = 1;
-    var scale = /*Math.random() +*/ 0.25;
+    var scale = Math.random() * 0.50 + 0.25;
 
     // Set the size of your creature
     creature.size({
@@ -101,7 +101,7 @@ const init = (number) => {
         top: boid[1] + canvasSize.height / 2,
       };
 
-      
+
 
       // // Collision detection with the edge of the screen
       // if ((newpos.left > canvasSize.width) || newpos.left < -element.width()) {
