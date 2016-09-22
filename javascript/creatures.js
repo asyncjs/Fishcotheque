@@ -26,6 +26,6 @@
         "creatures/pufferfish/pufferfish.js",
         "creatures/niall-fish-1/niall-fish-1.js",
         "creatures/octopus/octopus.js"
-
+        "creatures/jellyfish/jellyfish.js"
     );
 }());

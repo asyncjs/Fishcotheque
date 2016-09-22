@@ -1,0 +1,15 @@
+.creature--jellyfish {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+.creature--jellyfish.pos1 {
+  background-image: url(jellyfish-1.png);
+}
+.creature--jellyfish.pos2 {
+  background-image: url(jellyfish-2.png);
+}
+.creature--jellyfish.pos3 {
+  background-image: url(jellyfish-3.png);
+}
