@@ -41,6 +41,10 @@ fishcotheque.createCreature('link-fish', function (creature) {
     var animationUpdateTime     = (1000 / 24);
     var timeSinceLastFrameSwap  = 0;
 
+
+    // get all the creatures
+    var allCreatures = fishcotheque.all();
+
     // Set the size of your creature
     creature.size({ width: width, height: height });
     creature.position({ top: top, left: left });
@@ -123,4 +127,15 @@ fishcotheque.createCreature('link-fish', function (creature) {
         // Move creature
         creature.position(newpos);
     });
+
+
+    //
+    setTimeout( function() {
+        jQuery.each(allCreatures, function (name, creature) {
+            if( name != 'sea-bg') {
+                creature.el.addClass('animate');
+            }
+        });
+
+    }, 100);
 });
