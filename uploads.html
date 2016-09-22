@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Upload your creature</title>
+        <style>
+            label {
+                font-weight: bold;
+            }
+            div {
+                margin: 5px;
+                padding:5px;
+            }
+            .part {
+                border: 1px dotted;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Upload your creature!</h1>
+
+        <form id="uploadForm" action="/upload-creature" enctype="multipart/form-data" method="post">
+            <div>
+                <label for="creature-id">Creature Name</label>
+                <input id="creature-id" type="text" name="creature-id" placeholder="Warpig" required>
+            </div>
+            <div class="part">
+                <label for="src">Brain</label>
+                <input id="src" type="file" name="src">
+            </div>
+            <div class="part">
+                <div>
+                    <label for="mediaFiles">Media</label>
+                    <input id="mediaFiles" type="file" name="media" multiple>
+                </div>
+            </div>
+            <input id="submit" type="submit" value="Upload">
+        </form>
+
+    </body>
+</html>
