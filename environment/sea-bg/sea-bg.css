@@ -1,5 +1,6 @@
 .creature--sea-bg {
-    background: linear-gradient(to bottom,
-        rgb(30,87,153) 0%,
-        rgb(125,185,232) 100%);
+    background-image: radial-gradient(ellipse farthest-side at right top,
+        #03B3A7 0%,
+        #05A0A6 50%,
+        #3366FF 100%);
 }
