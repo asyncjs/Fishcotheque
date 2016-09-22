@@ -404,4 +404,9 @@
 
   fishcotheque.init();
 
+  // Reload after 2 minutes to fix any performance issues. Possibly related to flocking.
+  setTimeout(function() {
+    window.location.reload();
+  }, 2 * 60 * 1000);
+
 }(this.jQuery, this.Broadcast, this.getScript, this));
