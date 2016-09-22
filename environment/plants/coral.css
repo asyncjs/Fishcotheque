@@ -1,0 +1,11 @@
+.creature--coral {
+    width: 117px;
+    height: 60px;
+    background-image: url(coral.sprite.png);
+    animation: playcoral .8s steps(2) infinite;
+}
+
+@keyframes playcoral {
+   from { background-position-x: 0; }
+     to { background-position-x: 207px; }
+}
