@@ -24,7 +24,8 @@
         "creatures/wormfish/wormfish.js",
         "creatures/rick/rick.js",
         "creatures/pufferfish/pufferfish.js",
-        "creatures/niall-fish-1/niall-fish-1.js"
+        "creatures/niall-fish-1/niall-fish-1.js",
+        "creatures/octopus/octopus.js"
 
     );
 }());

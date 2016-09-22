@@ -1,0 +1,11 @@
+.creature--octopus.normal {
+    background-image: url(octopus.png);
+}
+
+.creature--octopus.flex {
+  background-image: url(octopusFlex.png);
+}
+
+.creature--octopus.walk {
+  background-image: url(octopusWalk.png);
+}
