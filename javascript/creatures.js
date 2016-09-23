@@ -15,9 +15,7 @@
         "creatures/squido/squido.js",
         "creatures/example-fish-1/example-fish-1.js",
         "creatures/example-fish-2/example-fish-2.js",
-<<<<<<< HEAD
-        "creatures/splatoon-squid/splatoon-squid.js"
-=======
+        "creatures/splatoon-squid/splatoon-squid.js",
         "creatures/link-fish/link-fish.js",
         "creatures/ms-crab/ms-crab.js",
         "creatures/clam/clam.js",
@@ -32,6 +30,5 @@
         "creatures/niall-fish-1/niall-fish-1.js",
         "creatures/octopus/octopus.js",
         "creatures/jellyfish/jellyfish.js"
->>>>>>> master
     );
 }());
