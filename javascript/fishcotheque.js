@@ -70,12 +70,16 @@
       var element, creature;
 
       if (creatures[name]) {
-        window.console.warn('The creature "%s" already exists!');
+        window.console.warn('The creature "%s" already exists!', name);
         return;
       }
 
       element  = $('<div class="creature creature--' + name + '" data-id="' + name + '" />').appendTo($fishcotheque);
       creature = new Creature(name, element);
+
+      // detect the type
+      creature.environment = document.currentScript.src.indexOf('environment') !== -1;
+
 
       try {
         callback.call(creature, creature);
@@ -191,11 +195,11 @@
     init: function(){
       var events = {
         crash : function (name, error) {
-          window.console.log([
+          window.console.log(
             name + " failed at evolution",
             error.name + ': ' + error.message,
-            error.stack ? error.stack.join('\n') : "no stack"
-          ]);
+            error.stack ? (error.length ? Array.prototype.join(error.stack,'\n') : error.stack) : "no stack"
+          );
         }
       };
 
@@ -399,5 +403,10 @@
   /////
 
   fishcotheque.init();
+
+  // Reload after 2 minutes to fix any performance issues. Possibly related to flocking.
+  setTimeout(function() {
+    window.location.reload();
+  }, 2 * 60 * 1000);
 
 }(this.jQuery, this.Broadcast, this.getScript, this));

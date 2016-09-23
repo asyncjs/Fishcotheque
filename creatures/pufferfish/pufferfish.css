@@ -1,0 +1,18 @@
+.creature--pufferfish {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+.creature--pufferfish.pos1 {
+  background-image: url(pufferfish-1.png);
+}
+.creature--pufferfish.pos2 {
+  background-image: url(pufferfish-2.png);
+}
+.creature--pufferfish.pos3 {
+  background-image: url(pufferfish-3.png);
+}
+.creature--pufferfish.pos4 {
+  background-image: url(pufferfish-4.png);
+}

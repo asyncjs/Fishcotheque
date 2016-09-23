@@ -1,0 +1,9 @@
+.creature--best-mermaid {
+    background-image: url(mermaid.sprite.png);
+    animation: play-mermaid .8s steps(3) infinite;
+}
+
+@keyframes play-mermaid {
+   from { background-position-y: 0; }
+     to { background-position-y: 480px; }
+}

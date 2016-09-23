@@ -1,8 +1,7 @@
 .creature--sea-bed {
     height: 100px;
-    background: linear-gradient(to bottom,
-        rgb(238, 223, 195) 0%,
-        rgb(245, 245, 220) 100%);
+    background: url(sand.png) rgb(238, 223, 195);
+    background-size: 96px 96px;
 }
 
 @media (max-device-width: 600px) {
