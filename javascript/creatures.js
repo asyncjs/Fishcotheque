@@ -8,10 +8,8 @@
         "environment/sea-bed/sea-bed.js",
 
         // CREATURES
-        //"creatures/example-fish-1/example-fish-1.js",
-        //"creatures/handfish/handfish.js",
+        "creatures/example-fish-1/example-fish-1.js",
+        "creatures/example-fish-2/example-fish-2.js",
         "creatures/splatoon-squid/splatoon-squid.js"
-        //"creatures/example-fish-2/example-fish-2.js"
-
     );
 }());
